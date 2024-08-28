@@ -5,6 +5,7 @@ import CardItem from "@/components/Card";
 import { ArrowLeftOutlined, RightOutlined } from "@ant-design/icons";
 import MajorModal from "./MajorModal";
 import { modalData } from "@/utils/modalData";
+import { setCookie, getCookie } from "cookies-next";
 
 interface FourthStepProps {}
 
@@ -72,8 +73,8 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         <Divider
           style={{ borderColor: "#407BFF", width: "20px", minWidth: "50px" }}
         ></Divider>
-        <Card className="bg-card-color w-max">value card sebelumnya #1</Card>
-        <Card className="bg-card-color w-max">value card sebelumnya #2</Card>
+        <Card className="bg-card-color w-max">{getCookie('secondStep')}</Card>
+        <Card className="bg-card-color w-max">{getCookie('thirdStep')}</Card>
       </div>
 
       <div className="grid grid-cols-2 items-center gap-3 -mr-24">

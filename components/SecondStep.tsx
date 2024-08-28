@@ -1,10 +1,14 @@
 import type { FC } from 'react';
 import { Divider } from 'antd';
 import CardItem from '@/components/Card'
+import { setCookie } from "cookies-next";
 
 interface SecondStepProps {}
 
 const SecondStep: FC<SecondStepProps> = ({}) => {
+    const handleCardClick = (card: string) => {
+        setCookie('secondStep', card, { maxAge: 7 * 24 * 60 * 60 });
+    };
         return (
             <div className='flex justify-between'>
             <div className='flex flex-col gap-4 w-[26rem] font-montserrat'>
@@ -21,6 +25,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     height="198px"
                     width="282px"
                     backgroundPosition="center"
+                    onClick={() => handleCardClick("Business & Technology")}
                 />
 
                 <CardItem
@@ -29,6 +34,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     height="198px"
                     width="282px"
                     backgroundPosition="left"
+                    onClick={() => handleCardClick("Nursing & Education")}
                 />
                   <CardItem
                     backgroundImage="/assets/healthscience.png"
@@ -36,6 +42,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     height="198px"
                     width="282px"
                     backgroundPosition="center"
+                    onClick={() => handleCardClick("Health Sciences")}
                 />
 
                 <CardItem
@@ -44,6 +51,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     height="198px"
                     width="282px"
                     backgroundPosition="center"
+                    onClick={() => handleCardClick("Arts & Social Sciences")}
                 />
             </div>
             </div>

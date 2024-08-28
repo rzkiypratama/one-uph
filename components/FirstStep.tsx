@@ -2,6 +2,7 @@
 import { useState, type FC } from 'react';
 import { Divider } from 'antd';
 import CardItem from '@/components/Card'
+import { setCookie } from "cookies-next";
 
 interface FirstStepProps {}
 
@@ -9,7 +10,9 @@ const FirstStep: FC<FirstStepProps> = ({}) => {
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
 
     const handleCardClick = (card: string) => {
-      setSelectedCard(card);
+        setSelectedCard(card);
+
+        setCookie('selectedNationality', card, { maxAge: 7 * 24 * 60 * 60 });
     };
         return (
             <div className='flex justify-between'>
