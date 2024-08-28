@@ -23,7 +23,8 @@ const config: Config = {
         'card-color': '#DFE9FF',
         'paragraph-color': '#7AA3FF',
         'accent-color': '#989898',
-        'text-color': '#231F20'
+        'text-color': '#231F20',
+        'form-text': '#5C5C5C'
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
