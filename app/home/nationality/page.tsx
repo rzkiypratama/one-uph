@@ -44,8 +44,8 @@ const Page = (props: Props) => {
   return (
     <div className="h-screen">
       <Logo />
-      <div className="p-20 tracking-wider">
-        <Card className="w-[90%] p-8 h-[100%]">
+      <div className="p-20 tracking-wider h-full">
+        <Card className="w-[90%] p-8 h-full">
           {currentStep === 1 && <FirstStep />}
           {currentStep === 2 && <SecondStep />}
           {currentStep === 3 && <ThirdStep />}
@@ -54,7 +54,7 @@ const Page = (props: Props) => {
           {currentStep === 6 && <SixthStep />}
           {currentStep === 7 && <SeventhStep />}
 
-          <div className="flex justify-between pt-5">
+          <div className="flex justify-between pt-[10rem]">
             <Button type="link" onClick={prevStep} disabled={currentStep === 1}>
               {renderBackButtonContent()}
             </Button>
