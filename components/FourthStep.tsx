@@ -116,6 +116,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
       >
         {selectedModalData && (
           <MajorModal
+            key={modalTitle}
             title={selectedModalData.title}
             badgeTitle={selectedModalData.badgeTitle}
             description={selectedModalData.description}
