@@ -33,6 +33,7 @@ const Page = (props: Props) => {
           {currentStep === 4 && <FourthStep />}
           {currentStep === 5 && <FifthStep />}
           {currentStep === 6 && <SixthStep />}
+          {/* <FourthStep /> */}
 
           <div className="flex justify-between pt-5">
             <Button type="link" onClick={prevStep} disabled={currentStep === 1}>

@@ -94,7 +94,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         open={isModalVisible}
         onCancel={handleCancel}
         footer={[
-          <div className="flex justify-between">
+          <div className="flex justify-between" key={modalTitle}>
             <Button type="link" onClick={handleCancel}>
               <ArrowLeftOutlined /> Back
             </Button>
