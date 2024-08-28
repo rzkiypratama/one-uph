@@ -12,7 +12,7 @@ import SixthStep from "@/components/SixthStep";
 
 type Props = {};
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   const [currentStep, setCurrentStep] = useState(1);
 
   const nextStep = () => {
@@ -55,4 +55,4 @@ const page = (props: Props) => {
   );
 };
 
-export default page;
+export default Page;
