@@ -11,7 +11,22 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "hero": "public/assets/bg-hero.png"
+      },
+      colors: {
+        'main-color': '#407BFF',
+        'header-color': '#112369',
+        'header--color': '#26334D',
+        'circle-color': 'rgba(196, 155, 51, 0.10)',
+        'bg-color': '#fafbfc',
+        'card-color': '#DFE9FF',
+        'paragraph-color': '#7AA3FF',
+        'accent-color': '#989898',
+        'text-color': '#231F20'
+      },
+      fontFamily: {
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
     },
   },
