@@ -25,10 +25,7 @@ const FirstStep: FC<FirstStepProps> = ({}) => {
 
              <div className='flex items-center gap-3 -mr-24'>
                 <div
-                    style={{
-                        opacity: selectedCard && selectedCard !== "National" ? 0.5 : 1,
-                        pointerEvents: selectedCard && selectedCard !== "National" ? 'none' : 'auto',
-                    }}
+                  
                     onClick={() => handleCardClick("National")}
                 >
                     <CardItem
@@ -37,14 +34,12 @@ const FirstStep: FC<FirstStepProps> = ({}) => {
                         height="402px"
                         width="272px"
                         backgroundPosition="center"
+                        isDimmed={selectedCard !== null && selectedCard !== "National"}
                     />
                 </div>
 
                 <div
-                    style={{
-                        opacity: selectedCard && selectedCard !== "International" ? 0.5 : 1,
-                        pointerEvents: selectedCard && selectedCard !== "International" ? 'none' : 'auto',
-                    }}
+                
                     onClick={() => handleCardClick("International")}
                 >
                     <CardItem
@@ -53,6 +48,7 @@ const FirstStep: FC<FirstStepProps> = ({}) => {
                         height="402px"
                         width="272px"
                         backgroundPosition="left"
+                        isDimmed={selectedCard !== null && selectedCard !== "International"}
                     />
                 </div>
             </div>

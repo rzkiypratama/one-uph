@@ -1,4 +1,5 @@
-import type { FC } from 'react';
+'use client'
+import { useState, type FC } from 'react';
 import { Divider } from 'antd';
 import CardItem from '@/components/Card'
 import { setCookie } from "cookies-next";
@@ -6,7 +7,11 @@ import { setCookie } from "cookies-next";
 interface SecondStepProps {}
 
 const SecondStep: FC<SecondStepProps> = ({}) => {
+    const [selectedCard, setSelectedCard] = useState<string | null>(null);
+
     const handleCardClick = (card: string) => {
+        setSelectedCard(card);
+
         setCookie('secondStep', card, { maxAge: 7 * 24 * 60 * 60 });
     };
         return (
@@ -26,6 +31,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     width="282px"
                     backgroundPosition="center"
                     onClick={() => handleCardClick("Business & Technology")}
+                    isDimmed={selectedCard !== null && selectedCard !== "Business & Technology"}
                 />
 
                 <CardItem
@@ -35,6 +41,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     width="282px"
                     backgroundPosition="left"
                     onClick={() => handleCardClick("Nursing & Education")}
+                    isDimmed={selectedCard !== null && selectedCard !== "Nursing & Education"}
                 />
                   <CardItem
                     backgroundImage="/assets/healthscience.png"
@@ -43,6 +50,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     width="282px"
                     backgroundPosition="center"
                     onClick={() => handleCardClick("Health Sciences")}
+                    isDimmed={selectedCard !== null && selectedCard !== "Health Sciences"}
                 />
 
                 <CardItem
@@ -52,6 +60,7 @@ const SecondStep: FC<SecondStepProps> = ({}) => {
                     width="282px"
                     backgroundPosition="center"
                     onClick={() => handleCardClick("Arts & Social Sciences")}
+                    isDimmed={selectedCard !== null && selectedCard !== "Arts & Social Sciences"}
                 />
             </div>
             </div>
