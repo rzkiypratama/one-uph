@@ -44,8 +44,8 @@ const Page = (props: Props) => {
   return (
     <div className="h-screen">
       <Logo />
-      <div className="p-20 tracking-wider h-full">
-        <Card className="w-[90%] p-8 h-full">
+      <div className="p-20 tracking-wider h-full flex flex-col justify-center">
+        <Card className="w-[90%] p-8 items-center align-middle">
           {currentStep === 1 && <FirstStep />}
           {currentStep === 2 && <SecondStep />}
           {currentStep === 3 && <ThirdStep />}
@@ -54,7 +54,7 @@ const Page = (props: Props) => {
           {currentStep === 6 && <SixthStep />}
           {currentStep === 7 && <SeventhStep />}
 
-          <div className="flex justify-between pt-[10rem]">
+          <div className="flex justify-between pt-12 h-full">
             <Button type="link" onClick={prevStep} disabled={currentStep === 1}>
               {renderBackButtonContent()}
             </Button>
@@ -66,7 +66,7 @@ const Page = (props: Props) => {
                 className="px-8 py-4"
                 onClick={nextStep}
               >
-                {currentStep === 6 ? "Submit" : "Next Step"} <RightOutlined />
+                Next Step <RightOutlined />
               </Button>
             )}
           </div>

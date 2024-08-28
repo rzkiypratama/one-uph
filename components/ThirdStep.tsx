@@ -18,7 +18,7 @@ const ThirdStep: FC<ThirdStepProps> = ({}) => {
                 <h3 className='text-4xl font-semibold text-header-color'>Which kind of Major are you interested in?</h3>
                 <p className='text-xl text-accent-color'>Choose a program major</p>
                 <Divider style={{  borderColor: '#407BFF', width: '20px', minWidth: '50px' }}></Divider>
-                <Card className='bg-card-color w-max'>{getCookie('secondStep')}</Card>
+                <p className='bg-card-color w-max p-2 rounded-md text-main-color'>{getCookie('secondStep')}</p>
             </div>
 
             <div className='grid grid-cols-2 items-center gap-3 -mr-24'>
