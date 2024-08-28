@@ -26,14 +26,47 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
   };
 
   const selectedModalData = modalTitle ? modalData[modalTitle] : null;
-    console.log(modalData);
+  console.log(modalData);
+
+  const cardItems = [
+    {
+      title: "Graphic Design",
+      backgroundImage: "/assets/design.jpeg",
+      backgroundPosition: "center",
+    },
+    {
+      title: "Product Design",
+      backgroundImage: "/assets/productdesign.png",
+      backgroundPosition: "left",
+    },
+    {
+      title: "Digital Arts",
+      backgroundImage: "/assets/art.png",
+      backgroundPosition: "center",
+    },
+    {
+      title: "Interior Design",
+      backgroundImage: "/assets/interiordesign.jpeg",
+      backgroundPosition: "center",
+    },
+    {
+      title: "Film",
+      backgroundImage: "/assets/movie.png",
+      backgroundPosition: "center",
+    },
+    {
+      title: "Architecture",
+      backgroundImage: "/assets/arcitecture.png",
+      backgroundPosition: "center",
+    },
+  ];
 
   return (
     <div className="flex justify-between">
       <div className="flex flex-col gap-4 w-[26rem] font-montserrat">
         <p className="uppercase font-bold text-paragraph-color">step 4 of 8</p>
         <h3 className="text-4xl font-semibold text-header-color">
-            Which kind of Program are you interested in?
+          Which kind of Program are you interested in?
         </h3>
         <p className="text-xl text-accent-color">Choose a program</p>
         <Divider
@@ -44,72 +77,24 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
       </div>
 
       <div className="grid grid-cols-2 items-center gap-3 -mr-24">
-        <CardItem
-          key={modalTitle}
-          backgroundImage="/assets/design.jpeg"
-          title="Graphic Design"
-          height="128px"
-          width="282px"
-          backgroundPosition="center"
-          onClick={() => showModal("Graphic Design")}
-        />
-
-        <CardItem
-          key={modalTitle}
-          backgroundImage="/assets/productdesign.png"
-          title="Product Design"
-          height="128px"
-          width="282px"
-          backgroundPosition="left"
-          onClick={() => showModal("Product Design")}
-        />
-
-        <CardItem
-          key={modalTitle}
-          backgroundImage="/assets/art.png"
-          title="Digital Arts"
-          height="128px"
-          width="282px"
-          backgroundPosition="center"
-          onClick={() => showModal("Digital Arts")}
-        />
-
-        <CardItem
-          key={modalTitle}
-          backgroundImage="/assets/interiordesign.jpeg"
-          title="Interior Design"
-          height="128px"
-          width="282px"
-          backgroundPosition="center"
-          onClick={() => showModal("Interior Design")}
-        />
-
-        <CardItem
-          key={modalTitle}
-          backgroundImage="/assets/movie.png"
-          title="Film"
-          height="128px"
-          width="282px"
-          backgroundPosition="center"
-          onClick={() => showModal("Film")}
-        />
-
-        <CardItem
-          key={modalTitle}
-          backgroundImage="/assets/arcitecture.png"
-          title="Architecture"
-          height="128px"
-          width="282px"
-          backgroundPosition="center"
-          onClick={() => showModal("Architecture")}
-        />
+        {cardItems.map((item) => (
+          <CardItem
+            key={item.title}
+            backgroundImage={item.backgroundImage}
+            title={item.title}
+            height="128px"
+            width="282px"
+            backgroundPosition={item.backgroundPosition}
+            onClick={() => showModal(item.title)}
+          />
+        ))}
       </div>
 
       <Modal
         open={isModalVisible}
         onCancel={handleCancel}
         footer={[
-          <div className="flex justify-between" key={modalTitle}>
+          <div className="flex justify-between">
             <Button type="link" onClick={handleCancel}>
               <ArrowLeftOutlined /> Back
             </Button>
@@ -122,7 +107,6 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
       >
         {selectedModalData && (
           <MajorModal
-            key={modalTitle}
             title={selectedModalData.title}
             badgeTitle={selectedModalData.badgeTitle}
             description={selectedModalData.description}
