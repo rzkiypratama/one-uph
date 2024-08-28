@@ -45,6 +45,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
 
       <div className="grid grid-cols-2 items-center gap-3 -mr-24">
         <CardItem
+          key={modalTitle}
           backgroundImage="/assets/design.jpeg"
           title="Graphic Design"
           height="128px"
@@ -54,6 +55,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         />
 
         <CardItem
+          key={modalTitle}
           backgroundImage="/assets/productdesign.png"
           title="Product Design"
           height="128px"
@@ -63,6 +65,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         />
 
         <CardItem
+          key={modalTitle}
           backgroundImage="/assets/art.png"
           title="Digital Arts"
           height="128px"
@@ -72,6 +75,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         />
 
         <CardItem
+          key={modalTitle}
           backgroundImage="/assets/interiordesign.jpeg"
           title="Interior Design"
           height="128px"
@@ -81,6 +85,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         />
 
         <CardItem
+          key={modalTitle}
           backgroundImage="/assets/movie.png"
           title="Film"
           height="128px"
@@ -90,6 +95,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         />
 
         <CardItem
+          key={modalTitle}
           backgroundImage="/assets/arcitecture.png"
           title="Architecture"
           height="128px"
@@ -103,7 +109,7 @@ const FourthStep: FC<FourthStepProps> = ({}) => {
         open={isModalVisible}
         onCancel={handleCancel}
         footer={[
-          <div className="flex justify-between">
+          <div className="flex justify-between" key={modalTitle}>
             <Button type="link" onClick={handleCancel}>
               <ArrowLeftOutlined /> Back
             </Button>
