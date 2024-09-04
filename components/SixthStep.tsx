@@ -32,21 +32,19 @@ const SixthStep: FC<SixthStepProps> = ({}) => {
 
             <div className='flex items-center gap-3 -mr-24'>
                 <CardItem
-                    backgroundImage="/assets/regular.jpeg"
-                    title="Regular Admission"
-                    height="402px"
-                    width="272px"
-                    backgroundPosition="center"
-                />
+                        backgroundImage="/assets/regular.jpeg"
+                        title="Regular Admission"
+                        height="402px"
+                        width="272px"
+                        backgroundPosition="center" gradientPosition={''} gradientColor={''}                />
 
                 <CardItem
-                    backgroundImage="/assets/schoolarship.png"
-                    title="Scholarship (I have an e-code)"
-                    height="402px"
-                    width="272px"
-                    backgroundPosition="left"
-                    onClick={() => showModal("")}
-                />
+                        backgroundImage="/assets/schoolarship.png"
+                        title="Scholarship (I have an e-code)"
+                        height="402px"
+                        width="272px"
+                        backgroundPosition="left"
+                        onClick={() => showModal("")} gradientPosition={''} gradientColor={''}                />
 
                 <Modal
                 open={isModalVisible}
