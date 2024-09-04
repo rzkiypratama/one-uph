@@ -21,8 +21,7 @@ const MajorModal: FC<MajorModalProps> = ({ title, badgeTitle, description, degre
           title=""
           height="445px"
           width="225px"
-          backgroundPosition="center"
-        />
+          backgroundPosition="center" gradientPosition={""} gradientColor={""}        />
       </div>
 
       <div className="flex flex-col gap-4 font-montserrat w-[100%]">
