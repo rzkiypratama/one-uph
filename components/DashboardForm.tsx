@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React, { Suspense } from 'react';
 import { Card } from 'antd';
 import Logo from './Logo';
-import PersonalInformation from './PersonalInformation';
-import CardDashboard from './CardDashboard';
 import LogoutButton from './LogoutButton';
-import CardForm from './ApplicationForm';
 import ApplicationForm from './ApplicationForm';
 
 const RegularForm: React.FC = () => {
@@ -18,7 +15,9 @@ const RegularForm: React.FC = () => {
     </div>
   <div className="p-20 tracking-wider h-full content-center">
     <Card className="items-center align-middle py-10">
+      <Suspense>
        <ApplicationForm/>
+      </Suspense>
     </Card>
   </div>
 </div>

@@ -1,12 +1,14 @@
 import WelcomePage from '@/components/WelcomePage'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 type Props = {}
 
 function Page({}: Props) {
   return (
     <div>
+      <Suspense>
         <WelcomePage/>
+      </Suspense>
     </div>
   )
 }

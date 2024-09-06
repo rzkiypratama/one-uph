@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import image from "@/public/assets/graduate.png";
 import idcard from "@/public/assets/idcard.png";
 import sigin from "@/public/assets/signin.png";
@@ -68,7 +68,7 @@ const WelcomePage = (props: Props) => {
         ) : (
           <SignInCard />
         )}
-      </div>
+      S</div>
 
         {/* mobile button */}
         <div className="right-side flex-col gap-5 tracking-wide flex md:hidden w-full">

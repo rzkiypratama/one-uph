@@ -18,7 +18,6 @@ interface ApplicationFormProps {}
 const ApplicationForm: FC<ApplicationFormProps> = ({}) => {
   const searchParams = useSearchParams();
   const step = searchParams.get("step") || "intakeYear";
-  const [form] = Form.useForm();
 
   const getStepImage = (currentStep: string, thisStep: string) => {
     const stepsOrder = [
@@ -64,24 +63,6 @@ const ApplicationForm: FC<ApplicationFormProps> = ({}) => {
         {step === "entryOption" && <EntryOption />}
         {step === "reviewPayment" && <ReviewPayment />}
       </div>
-
-      {/* Button Components */}
-      {/* <div style={{ display: "flex", justifyContent: "space-between", marginTop: "40px" }}>
-        {step !== "intakeYear" && (
-          <Button danger icon={<LeftOutlined />} size="large" className="rounded-none" onClick={handleBack}>
-            Back
-          </Button>
-        )}
-        <Button
-          danger
-          type="primary"
-          size="large"
-          className="rounded-none"
-        >
-          {step === "reviewPayment" ? "Proceed to Payment" : "Save Data & Continue"}{" "}
-          <RightOutlined />
-        </Button>
-      </div> */}
     </div>
   );
 };
