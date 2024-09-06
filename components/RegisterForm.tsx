@@ -1,11 +1,11 @@
 "use client";
-import { useState, type FC } from "react";
-import { Button, Divider, Input, Modal, Form, Card, DatePicker } from "antd";
-import CardItem from "@/components/Card";
+import { type FC } from "react";
+import { Divider, Input, Form, Card, DatePicker, Select } from "antd";
 
 interface RegisterFormProps {}
 
 const RegisterForm: FC<RegisterFormProps> = ({}) => {
+
   return (
     <div className="flex justify-between">
       <div className="flex flex-col gap-4 w-1/3 font-montserrat">
@@ -80,17 +80,17 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
               </Form.Item>
             </div>
 
-            <div className="flex gap-3 mb-5">
+            <div className="flex gap-3 text-yellow-400 mb-5">
               <Form.Item
-                label="Phone Number"
-                name="Phone Number"
+                label="Mobile Phone Number"
+                name="phoneNumber"
                 rules={[
                   {
                     required: true,
-                    message: "Please input your Phone Number!",
+                    message: "Please input your name!",
                   },
                 ]}
-                className="w-2/3"
+                className="w-1/3"
               >
                 <Input />
                 <Divider
@@ -100,15 +100,33 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
               </Form.Item>
 
               <Form.Item
-                label="Email Address"
-                name="Email Address"
+                label="Guardian Name"
+                name="guardianName"
                 rules={[
                   {
                     required: true,
-                    message: "Please input your Email Address!",
+                    message: "Please input your guardian name!",
                   },
                 ]}
-                className="w-full"
+                className="w-1/3"
+              >
+                <Input />
+                <Divider
+                  className="p-0 m-0"
+                  style={{ borderColor: "#407BFF" }}
+                ></Divider>
+              </Form.Item>
+
+              <Form.Item
+                label="Guardian Mobile Phone Number"
+                name="guardianMobilePhoneNumber"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your guardian phone number!",
+                  },
+                ]}
+                className="w-1/3"
               >
                 <Input />
                 <Divider
@@ -130,7 +148,7 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <DatePicker format='DD-MM-YYYY' />
+                <DatePicker format="DD-MM-YYYY" />
                 <Divider
                   className="p-0 m-0"
                   style={{ borderColor: "#407BFF" }}
@@ -146,7 +164,7 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                     message: "Please input your School Name!",
                   },
                 ]}
-                className="w-full"
+                className="w-1/2"
               >
                 <Input />
                 <Divider
@@ -165,7 +183,13 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                   },
                 ]}
               >
-                <Input />
+                <Select>
+                <Select.Option value="10">10</Select.Option>
+                <Select.Option value="10">11</Select.Option>
+                <Select.Option value="10">12</Select.Option>
+                <Select.Option value="10">Undergraduate</Select.Option>
+                <Select.Option value="10">Lainnya</Select.Option>
+                </Select>
                 <Divider
                   className="p-0 m-0"
                   style={{ borderColor: "#407BFF" }}
@@ -173,18 +197,19 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
               </Form.Item>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 mb-5">
               <Form.Item
-                label="Parent/Guardian Name"
-                name="Parent/Guardian Name"
+                label="Email Address"
+                name="Email Address"
                 rules={[
                   {
                     required: true,
-                    message: "Please input your Parent/Guardian Name!",
+                    message: "Please input your Email Address!",
                   },
                 ]}
-                className="w-1/2"
+                className="w-full"
               >
+                <p className="text-accent-color italic text-xs">This email will be used for your username</p>
                 <Input />
                 <Divider
                   className="p-0 m-0"
@@ -193,17 +218,36 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
               </Form.Item>
 
               <Form.Item
-                label="Parent/Guardian Mobile Phone Number*"
-                name="Parent/Guardian Mobile Phone Number*"
+                label="Password"
+                name="password"
                 rules={[
                   {
                     required: true,
-                    message:
-                      "Please input your Parent/Guardian Mobile Phone Number*!",
+                    message: "Please input password!",
                   },
                 ]}
-                className="w-1/2"
+                className="w-2/3"
               >
+                <p className="text-accent-color italic text-xs">minimum 8 characters</p>
+                <Input />
+                <Divider
+                  className="p-0 m-0"
+                  style={{ borderColor: "#407BFF" }}
+                ></Divider>
+              </Form.Item>
+
+              <Form.Item
+                label="Confirm Password"
+                name="confirmPassword"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please confirm your password!",
+                  },
+                ]}
+                className="w-2/3"
+              >
+                <p className="text-accent-color italic text-xs">minimum 8 characters</p>
                 <Input />
                 <Divider
                   className="p-0 m-0"
@@ -212,7 +256,9 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
               </Form.Item>
             </div>
           </Form>
-          <Button danger type="primary">Submit</Button>
+          {/* <Button className="px-10 py-5 float-end" danger type="primary">
+            Submit <RightOutlined />
+          </Button> */}
         </Card>
       </div>
     </div>

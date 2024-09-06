@@ -18,13 +18,16 @@ const config: Config = {
         'main-color': '#407BFF',
         'secondary-color': '#112369',
         'header--color': '#26334D',
-        'circle-color': 'rgba(196, 155, 51, 0.10)',
+        'header-color': '#264A99',
         'bg-color': '#D7182C',
         'card-color': '#DFE9FF',
         'paragraph-color': '#7AA3FF',
         'accent-color': '#989898',
         'text-color': '#231F20',
         'form-text': '#5C5C5C',
+        'review-text': '#3C3C3C',
+        'divider-color': '#BCD1FF'
+
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],

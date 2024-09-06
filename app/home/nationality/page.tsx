@@ -11,6 +11,7 @@ import Nationality from "@/components/Nationality";
 import StudyLevel from "@/components/StudyLevel";
 import Programs from "@/components/Programs";
 import RegisterForm from "@/components/RegisterForm";
+import ReviewForm from "@/components/ReviewForm";
 
 type Props = {};
 
@@ -21,9 +22,10 @@ type SelectedOption = {
 const Page = (props: Props) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedOption, setSelectedOption] = useState<SelectedOption>({});
+  const [loading, setLoading] = useState(false);
 
   const nextStep = () => {
-    if (currentStep < 7) setCurrentStep(currentStep + 1);
+    if (currentStep < 8) setCurrentStep(currentStep + 1);
   };
 
   const prevStep = () => {
@@ -34,10 +36,19 @@ const Page = (props: Props) => {
     setSelectedOption((prev) => ({ ...prev, [step]: option }));
   };
 
+  const handleSubmit = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      nextStep();
+    }, 1500);
+  };
+
   const isNextEnabled = selectedOption[currentStep] !== undefined;
 
   const renderBackButtonContent = () => {
-    if (currentStep === 1) return <>{<ArrowLeftOutlined />} back to Sign In</>;
+    if (currentStep === 1)
+      return <>{<ArrowLeftOutlined />} back to Sign In</>;
     if (currentStep === 2)
       return <>{<ArrowLeftOutlined />} back to Student Nationality</>;
     if (currentStep === 3)
@@ -50,6 +61,8 @@ const Page = (props: Props) => {
       return <>{<ArrowLeftOutlined />} back to Campus Selection</>;
     if (currentStep === 7)
       return <>{<ArrowLeftOutlined />} back to Admission Type</>;
+    if (currentStep === 8)
+      return <>{<ArrowLeftOutlined />} Edit your Personal Data</>;
 
     return <>{<ArrowLeftOutlined />} Back</>;
   };
@@ -80,6 +93,9 @@ const Page = (props: Props) => {
           {currentStep === 7 && (
             <RegisterForm />
           )}
+          {currentStep === 8 && (
+            <ReviewForm />
+          )}
 
           <div className="flex justify-between pt-12 h-full">
             <Button type="link" onClick={prevStep} disabled={currentStep === 1}>
@@ -92,9 +108,33 @@ const Page = (props: Props) => {
                 danger
                 className="px-8 py-4"
                 onClick={nextStep}
-                disabled={!isNextEnabled} // Tombol hanya aktif jika pengguna telah memilih opsi
+                disabled={!isNextEnabled}
               >
                 Next Step <RightOutlined />
+              </Button>
+            )}
+
+            {currentStep === 7 && (
+              <Button
+                type="primary"
+                danger
+                className="px-8 py-4"
+                onClick={handleSubmit}
+                loading={loading}
+              >
+                Submit
+              </Button>
+            )}
+
+            {currentStep === 8 && (
+              <Button
+                type="primary"
+                danger
+                className="px-8 py-4 hidden"
+                onClick={handleSubmit}
+                loading={loading}
+              >
+                Submitss
               </Button>
             )}
           </div>
