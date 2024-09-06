@@ -36,11 +36,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
 
               <Form.Item
@@ -54,11 +55,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
 
               <Form.Item
@@ -72,11 +74,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
             </div>
 
@@ -92,11 +95,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
 
               <Form.Item
@@ -110,11 +114,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
 
               <Form.Item
@@ -128,11 +133,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
             </div>
 
@@ -148,11 +154,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/3"
               >
-                <DatePicker format="DD-MM-YYYY" />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <DatePicker format="DD-MM-YYYY" style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
 
               <Form.Item
@@ -166,11 +173,14 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-1/2"
               >
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input 
+                style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}
+                />
+         
               </Form.Item>
 
               <Form.Item
@@ -183,17 +193,18 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                   },
                 ]}
               >
-                <Select>
+                <Select style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}>
                 <Select.Option value="10">10</Select.Option>
                 <Select.Option value="10">11</Select.Option>
                 <Select.Option value="10">12</Select.Option>
                 <Select.Option value="10">Undergraduate</Select.Option>
                 <Select.Option value="10">Lainnya</Select.Option>
                 </Select>
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+         
               </Form.Item>
             </div>
 
@@ -210,11 +221,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 className="w-full"
               >
                 <p className="text-accent-color italic text-xs">This email will be used for your username</p>
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
 
               <Form.Item
@@ -229,11 +241,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 className="w-2/3"
               >
                 <p className="text-accent-color italic text-xs">minimum 8 characters</p>
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
 
               <Form.Item
@@ -248,11 +261,12 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 className="w-2/3"
               >
                 <p className="text-accent-color italic text-xs">minimum 8 characters</p>
-                <Input />
-                <Divider
-                  className="p-0 m-0"
-                  style={{ borderColor: "#407BFF" }}
-                ></Divider>
+                <Input style={{
+                  border: "none",
+                  borderBottom: "2px solid #98989844",
+                  borderRadius: 0,
+                }}/>
+         
               </Form.Item>
             </div>
           </Form>
