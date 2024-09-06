@@ -11,3 +11,36 @@ body {
     background-size: cover;
     font-optical-sizing: auto;
 }
+
+.ant-radio-checked .ant-radio-inner{
+  border-color: red !important ;
+}
+
+.ant-radio-checked .ant-radio-inner:after{
+  background-color: red;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: red ;
+}
+
+@layer components {
+    .form-title {
+      @apply text-header-color text-sm font-semibold;
+    }
+    .form-subtitle {
+        @apply text-review-text font-medium
+    }
+    .code-title {
+       @apply text-xl font-semibold text-header-color tracking-wider
+    }
+    .code-subtitle {
+      @apply text-xs text-accent-color tracking-wider py-2
+   }
+   .code-button {
+    @apply w-full rounded-none bg-paragraph-color text-white font-semibold py-5
+   }
+   .card-intake {
+    @apply p-0
+   }
+  }
