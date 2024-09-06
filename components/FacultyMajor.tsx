@@ -1,4 +1,5 @@
-import type { FC } from "react";
+'use client'
+import { useState, type FC } from "react";
 import { Card, Divider } from "antd";
 import CardItem from "@/components/Card";
 import { setCookie, getCookie } from "cookies-next";
@@ -8,7 +9,10 @@ interface FacultyProps {
 }
 
 const Faculty: FC<FacultyProps> = ({ onSelect }) => {
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+
   const handleCardClick = (card: string) => {
+    setSelectedCard(card);
     setCookie("Faculty", card, { maxAge: 7 * 24 * 60 * 60 });
 
     onSelect(card);
@@ -37,6 +41,9 @@ const Faculty: FC<FacultyProps> = ({ onSelect }) => {
           width="282px"
           backgroundPosition="center"
           onClick={() => handleCardClick("Law")}
+          isDimmed={
+            selectedCard !== null && selectedCard !== "Law"
+          }
           gradientPosition="right"
           gradientColor={"#BCD1FF"}
         />
@@ -48,6 +55,9 @@ const Faculty: FC<FacultyProps> = ({ onSelect }) => {
           width="282px"
           backgroundPosition="left"
           onClick={() => handleCardClick("Design")}
+          isDimmed={
+            selectedCard !== null && selectedCard !== "Design"
+          }
           gradientPosition="right"
           gradientColor={"#BCD1FF"}
         />
@@ -58,6 +68,9 @@ const Faculty: FC<FacultyProps> = ({ onSelect }) => {
           width="282px"
           backgroundPosition="center"
           onClick={() => handleCardClick("Social & Political Sciences")}
+          isDimmed={
+            selectedCard !== null && selectedCard !== "Social & Political Sciences"
+          }
           gradientPosition="right"
           gradientColor={"#BCD1FF"}
         />
@@ -69,6 +82,9 @@ const Faculty: FC<FacultyProps> = ({ onSelect }) => {
           width="282px"
           backgroundPosition="center"
           onClick={() => handleCardClick("Music")}
+          isDimmed={
+            selectedCard !== null && selectedCard !== "Music"
+          }
           gradientPosition="right"
           gradientColor={"#BCD1FF"}
         />
