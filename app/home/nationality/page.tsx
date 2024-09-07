@@ -73,7 +73,7 @@ const Page = (props: Props) => {
       <div className="p-20 tracking-wider h-full flex flex-col justify-center">
         <Card className="w-[90%] p-8 items-center align-middle">
           {currentStep === 1 && (
-            <RegisterForm />
+            <Nationality onSelect={(option) => handleOptionSelect(1, option)} />
           )}
           {currentStep === 2 && (
             <StudyLevel onSelect={(option) => handleOptionSelect(2, option)} />
