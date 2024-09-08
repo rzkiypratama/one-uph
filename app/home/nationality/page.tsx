@@ -1,17 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Logo from "@/components/Logo";
-import { Button, Card, Divider } from "antd";
+import { Button, Card } from "antd";
 import { ArrowLeftOutlined, RightOutlined } from "@ant-design/icons";
 import FieldStudy from "@/components/FieldOfStudy";
 import Campus from "@/components/Campus";
-import Faculty from "@/components/FacultyMajor"
-import FourthStep from "@/components/Programs";
+import Faculty from "@/components/FacultyMajor";
+import Programs from "@/components/Programs";
 import Nationality from "@/components/Nationality";
 import StudyLevel from "@/components/StudyLevel";
-import Programs from "@/components/Programs";
 import RegisterForm from "@/components/RegisterForm";
 import ReviewForm from "@/components/ReviewForm";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type Props = {};
 
@@ -20,16 +20,30 @@ type SelectedOption = {
 };
 
 const Page = (props: Props) => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [selectedOption, setSelectedOption] = useState<SelectedOption>({});
   const [loading, setLoading] = useState(false);
 
+  // Get the current step from the URL or default to 1
+  const currentStep = Number(searchParams.get("step")) || 1;
+
+  useEffect(() => {
+    // Update URL when the step changes
+    router.push(`?step=${currentStep}`, undefined);
+  }, [currentStep]);
+
   const nextStep = () => {
-    if (currentStep < 8) setCurrentStep(currentStep + 1);
+    if (currentStep < 8) {
+      router.push(`?step=${currentStep + 1}`, undefined);
+    }
   };
 
   const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
+    if (currentStep > 1) {
+      router.push(`?step=${currentStep - 1}`, undefined);
+    }
   };
 
   const handleOptionSelect = (step: number, option: string) => {
@@ -47,24 +61,23 @@ const Page = (props: Props) => {
   const isNextEnabled = selectedOption[currentStep] !== undefined;
 
   const renderBackButtonContent = () => {
-    if (currentStep === 1)
-      return <>{<ArrowLeftOutlined />} back to Sign In</>;
-    if (currentStep === 2)
-      return <>{<ArrowLeftOutlined />} back to Student Nationality</>;
-    if (currentStep === 3)
-      return <>{<ArrowLeftOutlined />} back to Student Nationality</>;
-    if (currentStep === 4)
-      return <>{<ArrowLeftOutlined />} back to Student Nationality</>;
-    if (currentStep === 5)
-      return <>{<ArrowLeftOutlined />} back to Program Selection</>;
-    if (currentStep === 6)
-      return <>{<ArrowLeftOutlined />} back to Campus Selection</>;
-    if (currentStep === 7)
-      return <>{<ArrowLeftOutlined />} back to Admission Type</>;
-    if (currentStep === 8)
-      return <>{<ArrowLeftOutlined />} Edit your Personal Data</>;
-
-    return <>{<ArrowLeftOutlined />} Back</>;
+    switch (currentStep) {
+      case 1:
+        return <>{<ArrowLeftOutlined />} back to Sign In</>;
+      case 2:
+        return <>{<ArrowLeftOutlined />} back to Student Nationality</>;
+      case 3:
+      case 4:
+        return <>{<ArrowLeftOutlined />} back to Campus Selection</>;
+      case 5:
+        return <>{<ArrowLeftOutlined />} back to Program Selection</>;
+      case 6:
+        return <>{<ArrowLeftOutlined />} back to Admission Type</>;
+      case 7:
+        return <>{<ArrowLeftOutlined />} Edit your Personal Data</>;
+      default:
+        return <>{<ArrowLeftOutlined />} Back</>;
+    }
   };
 
   return (
@@ -72,6 +85,7 @@ const Page = (props: Props) => {
       <Logo />
       <div className="p-20 tracking-wider h-full flex flex-col justify-center">
         <Card className="w-[90%] p-8 items-center align-middle">
+          {/* Render the appropriate step based on the current step */}
           {currentStep === 1 && (
             <Nationality onSelect={(option) => handleOptionSelect(1, option)} />
           )}
@@ -90,12 +104,8 @@ const Page = (props: Props) => {
           {currentStep === 6 && (
             <Programs onSelect={(option) => handleOptionSelect(6, option)} />
           )}
-          {currentStep === 7 && (
-            <RegisterForm />
-          )}
-          {currentStep === 8 && (
-            <ReviewForm />
-          )}
+          {currentStep === 7 && <RegisterForm />}
+          {currentStep === 8 && <ReviewForm />}
 
           <div className="flex justify-between pt-12 h-full">
             <Button type="link" onClick={prevStep} disabled={currentStep === 1}>
@@ -123,18 +133,6 @@ const Page = (props: Props) => {
                 loading={loading}
               >
                 Submit
-              </Button>
-            )}
-
-            {currentStep === 8 && (
-              <Button
-                type="primary"
-                danger
-                className="px-8 py-4 hidden"
-                onClick={handleSubmit}
-                loading={loading}
-              >
-                Submitss
               </Button>
             )}
           </div>
