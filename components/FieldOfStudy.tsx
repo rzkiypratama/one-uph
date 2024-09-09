@@ -29,7 +29,7 @@ const FieldStudy: FC<FieldStudyProps> = ({ onSelect }) => {
           style={{ borderColor: "#407BFF", width: "20px", minWidth: "50px" }}
         ></Divider>
       </div>
-
+      
       <div className="grid grid-cols-2 items-center gap-3 -mr-24">
         <CardItem
           backgroundImage="/assets/businesstech.jpeg"

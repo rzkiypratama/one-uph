@@ -55,6 +55,7 @@ const WelcomePage = (props: Props) => {
               <Image src={sigin} width={40} alt="image" className="mt-5 float-end cursor-pointer" />
             </Card>
 
+          <Suspense>
             <Link href={"/home/nationality"}>
               <Card style={{ width: 300, height: 170 }} hoverable>
                 <p className="font-semibold text-xl text-secondary-color font-montserrat">Register</p>
@@ -64,11 +65,12 @@ const WelcomePage = (props: Props) => {
                 <Image src={idcard} width={40} alt="image" className="mt-5 float-end cursor-pointer" />
               </Card>
             </Link>
+          </Suspense>
           </>
         ) : (
           <SignInCard />
         )}
-      S</div>
+      </div>
 
         {/* mobile button */}
         <div className="right-side flex-col gap-5 tracking-wide flex md:hidden w-full">
