@@ -1,12 +1,45 @@
 "use client";
-import { type FC } from "react";
-import { Divider, Input, Form, Card, DatePicker, Select, Button } from "antd";
+import { useState, type FC } from "react";
+import {
+  Divider,
+  Input,
+  Form,
+  Card,
+  DatePicker,
+  Select,
+  Button,
+  notification,
+  Spin,
+} from "antd";
 import { RightOutlined } from "@ant-design/icons";
+import { useRouter } from "next/navigation";
 
 interface RegisterFormProps {}
 
 const RegisterForm: FC<RegisterFormProps> = ({}) => {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleRegister = async (values: any) => {
+    setLoading(true);
+
+    try {
+      // Simulate a network request with a delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      // On success, redirect to the desired URL
+      router.push("/home/nationality?step=8");
+    } catch (error) {
+      notification.error({
+        message: "Registration Failed",
+        description: "An error occurred while registering. Please try again.",
+      });
+      router.push("/home/nationality?step=8");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex justify-between">
@@ -230,9 +263,9 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 ]}
                 className="w-full"
               >
-                <p className="text-xs italic text-accent-color">
+                {/* <p className="text-xs italic text-accent-color">
                   This email will be used for your username
-                </p>
+                </p> */}
                 <Input
                   style={{
                     border: "none",
@@ -244,19 +277,17 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
 
               <Form.Item
                 label="Password"
-                name="password"
+                name="password" // Unik untuk field password
                 rules={[
                   {
                     required: true,
-                    message: "Please input password!",
+                    message: "Password must be at least 8 characters",
+                    min: 8, // Validasi panjang password
                   },
                 ]}
                 className="w-2/3"
               >
-                <p className="text-xs italic text-accent-color">
-                  minimum 8 characters
-                </p>
-                <Input
+                <Input.Password
                   style={{
                     border: "none",
                     borderBottom: "2px solid #98989844",
@@ -267,19 +298,29 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
 
               <Form.Item
                 label="Confirm Password"
-                name="confirmPassword"
+                name="confirmPassword" // Unik untuk field konfirmasi password
+                dependencies={["password"]} // Bergantung pada field password
+                hasFeedback
                 rules={[
                   {
                     required: true,
                     message: "Please confirm your password!",
                   },
+                  // Custom validator untuk mengecek kesamaan password
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (!value || value === getFieldValue("password")) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(
+                        new Error("The two passwords do not match!"),
+                      );
+                    },
+                  }),
                 ]}
                 className="w-2/3"
               >
-                <p className="text-xs italic text-accent-color">
-                  minimum 8 characters
-                </p>
-                <Input
+                <Input.Password
                   style={{
                     border: "none",
                     borderBottom: "2px solid #98989844",
@@ -288,8 +329,15 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
                 />
               </Form.Item>
             </div>
-            <Button className="float-end px-10 py-5" danger type="primary">
-              Submit <RightOutlined />
+            <Button
+              danger
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              onClick={handleRegister}
+              className="float-end px-10 py-5"
+            >
+              Submit
             </Button>
           </Form>
         </Card>

@@ -1,5 +1,4 @@
 import Registering from '@/components/Registering'
-import WelcomePage from '@/components/WelcomePage'
 import React, { Suspense } from 'react'
 
 type Props = {}

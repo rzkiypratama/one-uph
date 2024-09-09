@@ -124,18 +124,6 @@ const Registering = (props: Props) => {
                 Next Step <RightOutlined />
               </Button>
             )}
-
-            {currentStep === 7 && (
-              <Button
-                type="primary"
-                danger
-                className="px-8 py-4"
-                onClick={handleSubmit}
-                loading={loading}
-              >
-                Submit
-              </Button>
-            )}
           </div>
         </Card>
 
